@@ -1,0 +1,30 @@
+<h1 id="h1">Lista Wszystkich Ofert</h1>
+
+<table>
+  <tr id="tr1">
+    <th>Obrazek</th>
+    <th>Nazwa</th>
+    <th>Cena</th>
+    <th>Email Sprzedającego</th>
+  
+  </tr>
+
+<% @ads.each do |ad| %>
+  <tr id="tr2">
+    <td><img src="<%= ad.img_url %>" alt="" /></td>
+    <td id="nazwa"><%= ad.name %></td>
+    <td><%= ad.price %> zł</td>
+    <td><%= ad.email %></td>
+
+    <td id="h2"><%= link_to 'Pokaż Ofertę', ad %></td>
+    
+
+	<% if current_user %>
+		 <td id="h2"><%= link_to 'Edytuj Ofertę', edit_ad_path(ad) %></td>
+   		 <td id="h2"><%= link_to 'Usuń Ofertę', ad, :confirm => 'Czy napewno chcesz usunac Ofertę ?', :method => :delete %></td>
+	</tr>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+

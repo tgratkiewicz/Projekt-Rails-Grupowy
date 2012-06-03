@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<h1 id="h1" >Oferta <%= @ad.name %></h1>
+<p>
+  <b>Nazwa:</b>
+  <%= @ad.name %>
+</p>
+
+<p>
+  <b>Opis:</b>
+  <%= @ad.description %>
+</p>
+
+<p>
+  <b>Cena:</b>
+  <%= @ad.price %> zł
+</p>
+
+<p>
+  <b>Email Sprzedawcy:</b>
+  <%= @ad.email %>
+</p>
+
+<p>
+  <img src="<%= @ad.img_url %>" alt="" />
+</p>
+
+<% if current_user %>
+	<%= link_to 'Edytuj Ofertę', edit_ad_path(@ad) %> |
+	<%= link_to 'Usuń Ofertę', ad_path(@ad), :confirm => 'Czy napewno chcesz usunąć Ofertę?', :method => :delete %> |
+<% end %>
+<%= link_to 'Cofnij', ads_path %>

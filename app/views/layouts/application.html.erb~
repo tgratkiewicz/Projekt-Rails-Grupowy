@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ProjektRails2_Grupowy</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="wrapper">
+		
+		
+		<div id="header">
+			<h1></h1>
+			<div>
+
+		<ul id="nav">
+		
+
+	
+  			<% if current_user %>
+    				<li id="h2">Zalogowany jako <%= current_user.email %> </li><li><%= link_to "Wyloguj", log_out_path %></li>
+  				<% else %>
+    					<li><%= link_to "Zarejestruj", sign_up_path %></li>
+    					<li><%= link_to "Zaloguj", log_in_path %></li>
+  				<% end %>
+		
+				<% if current_user %>
+					<li id="h2"><%= link_to 'Dodaj Ofertę', new_ad_path %></li>
+				<% end %>
+
+			
+	
+				
+		</div>
+
+	
+		
+
+		
+	</div>	
+
+	<div id="content">
+		<%= yield %>
+	</div>
+
+
+</body>
+</html>
+
+
+			
+			</ul>
+
+
